@@ -1,0 +1,162 @@
+:root {
+  --bg-color: #FFFFFF;
+  --accent-purple: #B6AAFF;
+  --text-color: #000000;
+  --footer-bg: rgba(0, 0, 0, 0.27);
+  --grid-line-color: rgba(0, 0, 0, 0.05);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  background-color: var(--bg-color);
+}
+
+.screen {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  background: radial-gradient(100% 100% at 110% 110%, #B6AAFF 0%, #FFFFFF 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Fluid responsive layout container */
+.layout-container {
+  position: relative;
+  width: 100%;
+  max-width: 1440px;
+  height: min(100vh, 1024px); /* Stick to 1024 but allow smaller */
+  aspect-ratio: 1440 / 1024;
+  margin: 0 auto;
+}
+
+/* Grid Overlay - Scaled relative to container */
+.grid-overlay {
+  position: absolute;
+  width: 108.3%; /* 1560/1440 */
+  height: 100%;
+  left: -3.8%; /* -55/1440 */
+  top: 0;
+  opacity: 0.3;
+  pointer-events: none;
+  z-index: 0;
+  background-image: 
+      linear-gradient(to right, var(--grid-line-color) 1px, transparent 1px),
+      linear-gradient(to bottom, var(--grid-line-color) 1px, transparent 1px);
+  background-size: 6.94% 9.76%; /* 100/1440 and 100/1024 */
+  background-position: 4.79% 6.05%; /* 69/1440 and 62/1024 */
+}
+
+/* Logo 1 Section - Percentage based positioning */
+.logo-box {
+  position: absolute;
+  width: 45.7%; /* 658/1440 */
+  left: 50%;
+  top: 24.9%; /* 255/1024 */
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 2;
+}
+
+.main-logo {
+  width: 100%;
+  height: auto;
+}
+
+/* Description Text */
+.description {
+  position: absolute;
+  width: 55.1%; /* 794/1440 */
+  left: 50%;
+  top: 48.1%; /* 493/1024 */
+  transform: translateX(-50%);
+  font-family: 'Poppins', sans-serif;
+  font-weight: 400;
+  font-size: min(25px, 1.7vw);
+  line-height: 1.52;
+  text-align: center;
+  color: #000000;
+  z-index: 2;
+}
+
+/* 80G text */
+.section-80g {
+  position: absolute;
+  width: 100%;
+  left: 0;
+  top: 66.7%; /* 683/1024 */
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  font-size: min(15px, 1vw);
+  text-align: center;
+  color: #000000;
+  z-index: 2;
+}
+
+/* Wordmark image */
+.wordmark-box {
+  position: absolute;
+  width: 10.7%; /* 155/1440 */
+  left: 50.31%; /* (720 + 4.5)/1440 */
+  top: 71.5%;
+  transform: translateX(-50%);
+  z-index: 2;
+  overflow: hidden; /* Clips any edge artifacts */
+}
+
+.wordmark {
+  width: 100%;
+  height: auto;
+  display: block;
+  transform: scale(1.02); /* Slight overscale to push edge artifacts outside the clipping box */
+}
+
+/* Rectangle 382/Bottom bar - Exact Figma Parameters */
+.bottom-rect {
+  position: absolute;
+  width: 90.208%; /* 1299/1440 */
+  height: 7.129%; /* 73/1024 */
+  left: 4.861%; /* 70/1440 */
+  top: 90.527%; /* 927/1024 */
+  background: rgba(0, 0, 0, 0.27); /* #000000 at 27% */
+  border-radius: 19px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 3;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.bottom-rect:hover {
+  background: rgba(0, 0, 0, 0.4);
+}
+
+/* Contact info */
+.contact-info {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  font-size: min(18px, 1.25vw);
+  line-height: 1.5;
+  text-align: center;
+  color: #FFFFFF;
+}
+
+/* Large screen adjustments to prevent over-expansion */
+@media (min-width: 1440px) {
+  .description { font-size: 25px; }
+  .section-80g { font-size: 15px; }
+  .contact-info { font-size: 18px; }
+}
