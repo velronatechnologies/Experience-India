@@ -33,7 +33,7 @@ export default function Home() {
         </p>
 
         {/* Footer Credit Section */}
-        <p className="section-80g">A Section 80G company by</p>
+        <p className="section-80g">A 80G company by</p>
         
         {/* WORDMARK PNG 1 3 */}
         <div className="wordmark-box">

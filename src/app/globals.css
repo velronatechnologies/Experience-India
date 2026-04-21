@@ -188,3 +188,89 @@ body {
     font-size: 18px;
   }
 }
+
+/* Mobile responsive adjustments */
+@media (max-width: 768px) {
+  html, body {
+    overflow: hidden; /* Keep it non-scrollable as it's a splash page */
+    height: 100%;
+  }
+
+  .screen {
+    height: 100dvh;
+  }
+
+  .layout-container {
+    aspect-ratio: auto;
+    height: 100dvh;
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 0 20px;
+  }
+
+  .grid-overlay {
+    background-size: 80px 80px;
+    background-position: center top;
+    width: 100%;
+    left: 0;
+    height: 100dvh;
+  }
+
+  /* Reset absolute positions for mobile to use a hybrid flex-like approach or better percentages */
+  .logo-box {
+    width: 70%;
+    max-width: 280px;
+    top: 25dvh;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .main-logo {
+     width: 100%;
+     height: auto;
+  }
+
+  .description {
+    width: 90%;
+    top: 44dvh;
+    font-size: clamp(16px, 4.5vw, 19px);
+    line-height: 1.5;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .section-80g {
+    top: 62dvh;
+    font-size: 11px;
+    width: 100%;
+    opacity: 0.8;
+  }
+
+  .wordmark-box {
+    width: 95px;
+    top: 64.5dvh;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .bottom-rect {
+    width: 90%;
+    max-width: 400px;
+    height: 56px;
+    top: auto;
+    bottom: 6dvh;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 16px;
+  }
+
+  .contact-info {
+    font-size: clamp(11px, 3.2vw, 14px);
+    padding: 0 10px;
+    white-space: normal; /* Allow wrap if absolutely necessary on tiny screens */
+    text-align: center;
+  }
+}
