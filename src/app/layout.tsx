@@ -1,9 +1,16 @@
 import type { Metadata } from "next";
+import { Anek_Latin } from "next/font/google";
 import "./globals.css";
+
+const anekLatin = Anek_Latin({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-anek-latin",
+});
 
 export const metadata: Metadata = {
   title: "Experience India | A Ticpin Giveback",
-  description: "We’re quietly working on new ways to make a bigger difference. Updates will be shared soon.",
+  description: "Experience India is shaped by millions of Indians with one powerful vision: to build a better society through every child.",
 };
 
 export default function RootLayout({
@@ -12,11 +19,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" className={anekLatin.variable}>
       <head>
         <link rel="icon" href="/WEB FAV ICON.png" type="image/png" />
       </head>
-      <body>{children}</body>
+      <body className="antialiased">{children}</body>
     </html>
   );
 }
