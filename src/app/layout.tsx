@@ -11,6 +11,9 @@ const anekLatin = Anek_Latin({
 export const metadata: Metadata = {
   title: "Experience India | A Ticpin Giveback",
   description: "Experience India is shaped by millions of Indians with one powerful vision: to build a better society through every child.",
+  icons: {
+    icon: "/favicon.png?v=1",
+  },
 };
 
 export default function RootLayout({
@@ -20,9 +23,6 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={anekLatin.variable}>
-      <head>
-        <link rel="icon" href="/WEB FAV ICON.png" type="image/png" />
-      </head>
       <body className="antialiased">{children}</body>
     </html>
   );

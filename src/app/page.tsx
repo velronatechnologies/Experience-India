@@ -1,6 +1,12 @@
+"use client";
+
+import React, { useState } from "react";
 import Image from "next/image";
+import PartnerDrawer from "@/components/PartnerDrawer";
 
 export default function Home() {
+  const [isDrawerOpen, setIsDrawerOpen] = useState(false);
+
   return (
     <main className="main-page">
       {/* Header */}
@@ -9,8 +15,14 @@ export default function Home() {
           <Image src="/main logo.svg" alt="Experience India Logo" width={206} height={39} priority />
         </div>
         <nav className="nav-links">
-          <a href="#about" className="nav-link">About us</a>
-          <a href="#partner" className="nav-link">Partner with us</a>
+          <a href="/about" className="nav-link">About us</a>
+          <button 
+            onClick={() => setIsDrawerOpen(true)} 
+            className="nav-link"
+            style={{ background: 'none', border: 'none', cursor: 'pointer', font: 'inherit' }}
+          >
+            Partner with us
+          </button>
           <a href="#donate" className="donate-btn">Donate now</a>
         </nav>
       </header>
@@ -33,7 +45,7 @@ export default function Home() {
       {/* Mission Section */}
       <section className="mission">
         <p className="mission-text" style={{ marginTop: "-50px" }}>
-          Experience India is shaped by millions of Indians with one powerful vision: to build a better society through every child
+          Experience India is shaped by millions of Indians with one powerful vision: <br /> <span>to build a better society through every child</span>
         </p>
       </section>
 
@@ -195,6 +207,11 @@ export default function Home() {
           <p>Experience India, a Ticpin Giveback, is on a mission to nourish, support, and empower every child. With the strength of collective action, we are transforming the future of the nation—day by day.</p>
         </div>
       </footer>
+      {/* Partner Drawer */}
+      <PartnerDrawer 
+        isOpen={isDrawerOpen} 
+        onClose={() => setIsDrawerOpen(false)} 
+      />
     </main>
   );
 }
