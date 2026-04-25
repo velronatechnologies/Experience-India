@@ -12,7 +12,7 @@ export const metadata: Metadata = {
   title: "Experience India | A Ticpin Giveback",
   description: "Experience India is shaped by millions of Indians with one powerful vision: to build a better society through every child.",
   icons: {
-    icon: "/favicon.png?v=1",
+    icon: "/favicon.png?v=2",
   },
 };
 
