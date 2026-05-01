@@ -3,9 +3,11 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import PartnerDrawer from "@/components/PartnerDrawer";
+import DonateDrawer from "@/components/DonateDrawer";
 
 export default function Home() {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
+  const [isDonateDrawerOpen, setIsDonateDrawerOpen] = useState(false);
 
   return (
     <main className="main-page">
@@ -23,7 +25,13 @@ export default function Home() {
           >
             Partner with us
           </button>
-          <a href="#donate" className="donate-btn">Donate now</a>
+          <button 
+            onClick={() => setIsDonateDrawerOpen(true)} 
+            className="donate-btn"
+            style={{ border: 'none', cursor: 'pointer' }}
+          >
+            Donate now
+          </button>
         </nav>
       </header>
 
@@ -211,6 +219,10 @@ export default function Home() {
       <PartnerDrawer 
         isOpen={isDrawerOpen} 
         onClose={() => setIsDrawerOpen(false)} 
+      />
+      <DonateDrawer 
+        isOpen={isDonateDrawerOpen} 
+        onClose={() => setIsDonateDrawerOpen(false)} 
       />
     </main>
   );
